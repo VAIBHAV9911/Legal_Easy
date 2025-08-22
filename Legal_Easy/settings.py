@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-_$xiu6_w3#k1!3&q)a#!u)g4l84oj1q^k^nb$ozx8tm93q($o6
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_ORIGIN', 'https://legal-easy-2.onrender.com')]
+CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_ORIGIN', 'https://legal-easy-3.onrender.com')]
 
 # Application definition
 
