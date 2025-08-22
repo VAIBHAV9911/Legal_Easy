@@ -1,0 +1,19 @@
+body,html
+{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;  
+    /* flex direction column implements column entry */
+    background-color:azure;
+}
+.main-div{
+    flex:1;
+    /* if the cntent in the body is less then it will grow and if the content is more the body will shrink 
+    to make the footer on right position */
+
+}
+*{
+    font-family:cursive;
+    box-sizing:border-box;
+    
+}

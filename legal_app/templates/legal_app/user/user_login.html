@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    {% include 'legal_app/common/common_css.html' %}
+    <style>
+        .flex-container {
+            display: flex;
+            width: 100%;
+            background-color:white;
+            gap: 20px;
+            justify-content: center;
+        }
+        .div-img {
+            width: 25%;
+            height: 300px;
+            border-radius: 30%;
+            border: 2px solid black;
+        }
+        .div-form {
+            width: 30%;
+            height: 300px;
+            border-radius: 30%;
+        }
+        .div-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- navbar start -->
+    {% include 'legal_app/common/header.html' %}
+    <!-- navbar ends -->
+    <div class="main-div">
+        <div class="text-center mt-3 mb-3" style="margin:auto;">
+            <h1>User Log-In</h1>
+        </div>
+        {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width:50%;margin:auto;text-align:center;">
+            <strong>{{m}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <!-- flex box code start -->
+        <div class="flex-container mt-3">
+            <div class="div-img">
+                <img src="{% static 'legal_app/images/mission.png' %}" alt="">
+            </div>
+            <div class="div-form">
+                <form action="/login/" method="POST">
+                {% csrf_token %}
+                <div class="input-group mb-3 mt-3">
+                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" class="form-control" placeholder="Username" name="email" required>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-key"></i></i></span>
+                    <input type="text" class="form-control" placeholder="password" name="password" required>
+                </div>
+                <div class="text-center">
+                <button type="submit" class="btn btn-warning mt-3">Submit</button>
+                </div>
+                </form> 
+            </div>
+        </div>
+        <!-- flex box code end -->
+    </div>
+    {% include 'legal_app/common/footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

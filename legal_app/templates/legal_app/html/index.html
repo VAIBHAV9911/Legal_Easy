@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    {% include 'legal_app/common/common_css.html' %}
+    <style>
+        .w-100 {
+            height: 50vh;
+        }
+
+        .feedback-div {
+
+            display: flex;
+            margin-left: 50px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .feedback-card {
+            width: 350px;
+            height: 300px;
+            margin: 15px;
+            /* border: 3px solid red; */
+            border-radius: 10px;
+            transition: transform 0.5s;
+            box-shadow: 0 8px 16px rgb(0, 0, 0.8);
+            margin-bottom: 90px;
+            margin-top: 90px;
+        }
+
+        .feedback-card img {
+            width: 40%;
+            height: 45%;
+            margin-top: -80px;
+            margin-left: 80px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 2px solid black;
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .feedback-card:hover {
+            transform: scale(1.1);
+            /*   box-shadow: 0 8px 16px rgba(220, 7, 7, 0.8); */
+            z-index: 10;
+            /* Bring the hovered card to the front */
+        }
+
+        h6 {
+
+            color: blueviolet;
+            font-family: Verdana;
+            /* text-align: center; */
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body style="background-color:white">
+    <div class="main-div">
+        <!-- navbar code start -->
+        {% include 'legal_app/common/header.html' %}
+        <!-- navbar code ends -->
+        <div class="container-fluid mt-2" style="text-align:center;background-color:white;">
+            <marquee behavior="alternate" direction="">
+            <h3>📚 Bringing Legal Help Within Reach ⚖️</h3>
+            </marquee>
+        </div>
+        <!-- carousel code start -->
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'legal_app/images/legal1.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'legal_app/images/legal2.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'legal_app/images/legal3.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- carousel code ends -->
+        <hr style="border:3px solid black;">
+        <div class="container">
+
+        </div>
+        <div class="fluid-container d-flex justify-content-center">
+            <h2>Client Reviews 😎</h2>
+        </div>
+        <div class="feedback-div">
+            {% for f in feedback_key %}
+            <div class="feedback-card">
+                <img src="/media/{{f.profile_pic}}" alt="">
+                <h6>Rating:{{f.rating}}</h6>
+                <h6>Review:{{f.remarks}}</h6>
+                <h6>Posted by:{{f.name}}</h6>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- footer code start -->
+    {% include 'legal_app/common/footer.html' %}
+    <!-- footer code ends -->
+    <!-- <h1>Home Page</h1> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

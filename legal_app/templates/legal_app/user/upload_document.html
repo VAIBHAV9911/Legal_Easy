@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Document</title>
+    {% include 'legal_app/common/common_css.html' %}
+    <style>
+        .outer {
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .inner {
+            width: 30%;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-div"></div>
+
+
+    <!-- header -->
+    {% include 'legal_app/user/user_header.html' %}
+
+        {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-warning alert-dismissible fade show " role="alert" style="width:50%;margin: 100px auto;text-align:center;">
+            <strong>{{m}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    <!-- header end -->
+    <h1 style="display:flex;justify-content:center;margin-top:60px;">Upload Document</h1>
+    <div class="outer">
+        <div class="inner">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Document Name</label>
+                    <input type="text" name="document_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Advisor Email</label>
+                    <input type="email" name="advisor_email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Document Description</label>
+                    <input type="text" name="document_description" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Document Pic</label>
+                    <input type="file" name="document_pic" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Upload</button>
+            </form>
+
+        </div>
+    </div>
+    </div>
+    <!-- footer -->
+    {% include 'legal_app/common/footer.html' %}
+    <!-- footer code ends -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

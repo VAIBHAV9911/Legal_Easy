@@ -1,0 +1,61 @@
+{% load static %}
+<style>
+    .nav-link,.dropdown-item{
+        color:black!important;
+        font-size:20px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:white">
+    <div class="container-fluid">
+        <img src="{% static 'legal_app/images/mission.png' %}" alt="" style="height:50px;width:50px;border-radius:20%">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about/">AboutUs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact/">ContactUs</a>
+                </li>
+
+                {% comment %} <li class="nav-item">
+                    <a class="nav-link" href="/feedback/">Feedback</a>
+                </li> {% endcomment %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/registration/">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/view_services/">Our Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/our_advisor/">Our Advisor</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Login
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/login/">User</a></li>
+                        <li><a class="dropdown-item" href="/advisor_login/">Advisor</a></li>
+                        <li>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Services</title>
+    {% include 'legal_app/common/common_css.html' %}
+    <style>
+        .flex-container{
+            display:flex;
+            width:100%;
+            height:auto
+            background-color:white;
+            flex-wrap:wrap;
+        }
+        .item-div{
+            width:200px;
+            height:350px;
+            background-color:white;
+            margin-left:48px;
+            margin-bottom:20px;
+        }
+        .item-div img{
+            width:100%;
+            height:100px;
+        }
+    </style>
+    </head>
+<body style="background-color:white">
+    <div class="main-div">
+    <!-- <div class="container-fluid" style="background-color:#a9ae51;text-align:center">
+        <h3> ⚖️⚖️ legal easy welcome you tag line ⚖️⚖️</h3>
+    </div> -->
+    <!-- navbar code start -->
+{% include 'legal_app/common/header.html' %}
+    <!-- navbar code ends -->
+    <h2 style="text-align:center;">Services We Offer</h2>
+    <div class="flex-container">
+        {% for s in service_key %}
+        <div class="item-div">
+            <img src="/media/{{s.service_pic}}" alt="">
+            <h6>Service Name:{{s.service_type}}</h6>
+            <h6>Service Description:{{s.service_description|truncatechars:100}}</h6>
+        </div>
+        {% endfor %}
+    </div>
+    
+    </div>
+    <!-- footer code start -->
+{% include 'legal_app/common/footer.html' %}
+    <!-- footer code ends -->
+    <!-- <h1>Home Page</h1> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html> 
